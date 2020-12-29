@@ -1,9 +1,8 @@
-import { useContext } from "react";
-import { countContext } from "./App";
 import incrementCount from "./incrementCount";
+import useCount from "./useCount";
 
-const Counter = ({ setCount }) => {
-  const count = useContext(countContext);
+const Counter = () => {
+  const [count, setCount] = useCount();
   return (
     <>
       <h2>Counter</h2>

@@ -1,12 +1,9 @@
-import { useState, createContext } from "react";
 import Counter from "./Counter";
+import CountProvider from "./CountProvider";
 import logo from "./logo.svg";
 import "./App.css";
 
-export const countContext = createContext(undefined);
-
 function App() {
-  const [count, setCount] = useState(0);
   return (
     <div className="App">
       <header className="App-header">
@@ -24,9 +21,9 @@ function App() {
         </a>
       </header>
       <main>
-        <countContext.Provider value={count}>
-          <Counter setCount={setCount} />
-        </countContext.Provider>
+        <CountProvider>
+          <Counter />
+        </CountProvider>
       </main>
     </div>
   );
