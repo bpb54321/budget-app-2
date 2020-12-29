@@ -1,7 +1,11 @@
+import "./App.css";
+import Banner from "./Banner";
 import Counter from "./Counter";
 import CountProvider from "./CountProvider";
 import logo from "./logo.svg";
-import "./App.css";
+import SingleTransactionEntry from "./SingleTransactionEntry";
+import TransactionList from "./TransactionList";
+import TransactionsProvider from "./TransactionsProvider";
 
 function App() {
   return (
@@ -21,7 +25,12 @@ function App() {
         </a>
       </header>
       <main>
+        <TransactionsProvider>
+          <SingleTransactionEntry />
+          <TransactionList />
+        </TransactionsProvider>
         <CountProvider>
+          <Banner />
           <Counter />
         </CountProvider>
       </main>
