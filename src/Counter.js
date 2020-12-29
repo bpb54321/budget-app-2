@@ -1,13 +1,15 @@
-import incrementCount from "./incrementCount";
+import { COUNT_INCREMENTED } from "./countReducer";
 import useCount from "./useCount";
 
 const Counter = () => {
-  const [count, setCount] = useCount();
+  const [count, dispatchCount] = useCount();
   return (
     <>
       <h2>Counter</h2>
       <p data-testid="count">{count}</p>
-      <button onClick={() => incrementCount(setCount)}>Increment</button>
+      <button onClick={() => dispatchCount(COUNT_INCREMENTED)}>
+        Increment
+      </button>
     </>
   );
 };

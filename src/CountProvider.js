@@ -1,15 +1,16 @@
-import { createContext, useState } from "react";
+import { createContext, useReducer } from "react";
+import reduce, { initialValue } from "./countReducer";
 
 export const countContext = createContext(undefined);
-export const setCountContext = createContext(undefined);
+export const dispatchCountContext = createContext(undefined);
 
 const CountProvider = ({ children }) => {
-  const [count, setCount] = useState(0);
+  const [count, dispatchCount] = useReducer(reduce, initialValue);
   return (
     <countContext.Provider value={count}>
-      <setCountContext.Provider value={setCount}>
+      <dispatchCountContext.Provider value={dispatchCount}>
         {children}
-      </setCountContext.Provider>
+      </dispatchCountContext.Provider>
     </countContext.Provider>
   );
 };

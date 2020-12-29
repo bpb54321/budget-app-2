@@ -1,11 +1,11 @@
 import { useContext } from "react";
-import { countContext, setCountContext } from "./CountProvider";
+import { countContext, dispatchCountContext } from "./CountProvider";
 
 const useCount = () => {
   const count = useContext(countContext);
-  const setCount = useContext(setCountContext);
+  const dispatchCount = useContext(dispatchCountContext);
 
-  return [count, setCount];
+  return [count, dispatchCount];
 };
 
 export default useCount;
