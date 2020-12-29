@@ -1,7 +1,9 @@
-import { useState } from "react";
-import incrementCount from "./incrementCount";
+import { useState, createContext } from "react";
+import Counter from "./Counter";
 import logo from "./logo.svg";
 import "./App.css";
+
+export const countContext = createContext(undefined);
 
 function App() {
   const [count, setCount] = useState(0);
@@ -22,9 +24,9 @@ function App() {
         </a>
       </header>
       <main>
-        <h2>Counter</h2>
-        <p data-testid="count">{count}</p>
-        <button onClick={() => incrementCount(setCount)}>Increment</button>
+        <countContext.Provider value={count}>
+          <Counter setCount={setCount} />
+        </countContext.Provider>
       </main>
     </div>
   );
