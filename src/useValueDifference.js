@@ -4,7 +4,7 @@ function useValueDifference(newValueObject) {
   const oldValueObjectRef = useRef(newValueObject);
   const oldValueObject = oldValueObjectRef.current;
 
-  for (const key in newValueObject) {
+  for (const key of Object.keys(newValueObject)) {
     const oldValue = oldValueObject[key];
     const newValue = newValueObject[key];
     if (!Object.is(oldValue, newValue)) {
