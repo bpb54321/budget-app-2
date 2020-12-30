@@ -1,4 +1,5 @@
 import { useContext } from "react";
+import TransactionListFooter from "./TransactionListFooter";
 import { transactionsContext } from "./TransactionsProvider";
 import useValueDifference from "./useValueDifference";
 
@@ -9,11 +10,14 @@ const TransactionList = () => {
   useValueDifference({ transactions });
 
   return (
-    <ul>
-      {transactions.map(({ payee, id }) => (
-        <li key={id}>{payee}</li>
-      ))}
-    </ul>
+    <>
+      <ul>
+        {transactions.map(({ payee, id }) => (
+          <li key={id}>{payee}</li>
+        ))}
+      </ul>
+      <TransactionListFooter />
+    </>
   );
 };
 
