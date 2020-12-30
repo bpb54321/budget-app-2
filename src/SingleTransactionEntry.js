@@ -1,10 +1,10 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
+import { dispatchTransactionsContext } from "./TransactionsProvider";
 import { transactionAdded } from "./transactionsReducer";
-import useTransactions from "./useTransactions";
 
 const SingleTransactionEntry = () => {
   const [payee, setPayee] = useState("");
-  const [, dispatchTransactions] = useTransactions();
+  const dispatchTransactions = useContext(dispatchTransactionsContext);
   return (
     <form
       onSubmit={(event) => {
