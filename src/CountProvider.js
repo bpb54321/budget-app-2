@@ -1,11 +1,17 @@
 import { createContext, useReducer } from "react";
 import reduce, { initialValue } from "./countReducer";
+import useValueDifference from "./useValueDifference";
 
 export const countContext = createContext(undefined);
 export const dispatchCountContext = createContext(undefined);
 
 const CountProvider = ({ children }) => {
+  console.log("CountProvider");
+  useValueDifference(children, "children");
+
   const [count, dispatchCount] = useReducer(reduce, initialValue);
+  useValueDifference(count, "count");
+
   return (
     <countContext.Provider value={count}>
       <dispatchCountContext.Provider value={dispatchCount}>
@@ -15,5 +21,4 @@ const CountProvider = ({ children }) => {
   );
 };
 
-CountProvider.whyDidYouRender = true;
 export default CountProvider;

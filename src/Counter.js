@@ -1,8 +1,11 @@
 import { COUNT_INCREMENTED } from "./countReducer";
 import useCount from "./useCount";
+import useValueDifference from "./useValueDifference";
 
 const Counter = () => {
+  console.log("Counter");
   const [count, dispatchCount] = useCount();
+  useValueDifference(count, "count");
   return (
     <>
       <h2>Counter</h2>
@@ -14,5 +17,4 @@ const Counter = () => {
   );
 };
 
-Counter.whyDidYouRender = true;
 export default Counter;

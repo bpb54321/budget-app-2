@@ -8,6 +8,7 @@ import TransactionList from "./TransactionList";
 import TransactionsProvider from "./TransactionsProvider";
 
 function App() {
+  console.log("App");
   return (
     <div className="App">
       <header className="App-header">

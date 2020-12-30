@@ -1,10 +1,17 @@
 import { useState, useContext } from "react";
 import { dispatchTransactionsContext } from "./TransactionsProvider";
 import { transactionAdded } from "./transactionsReducer";
+import useValueDifference from "./useValueDifference";
 
 const SingleTransactionEntry = () => {
+  console.log("SingleTransactionEntry");
+
   const [payee, setPayee] = useState("");
+  useValueDifference(payee, "payee");
+
   const dispatchTransactions = useContext(dispatchTransactionsContext);
+  useValueDifference(dispatchTransactions, "dispatchTransactions");
+
   return (
     <form
       onSubmit={(event) => {
@@ -23,5 +30,4 @@ const SingleTransactionEntry = () => {
     </form>
   );
 };
-SingleTransactionEntry.whyDidYouRender = true;
 export default SingleTransactionEntry;
