@@ -7,10 +7,10 @@ export const dispatchCountContext = createContext(undefined);
 
 const CountProvider = ({ children }) => {
   console.log("CountProvider");
-  useValueDifference(children, "children");
+  useValueDifference({ children });
 
   const [count, dispatchCount] = useReducer(reduce, initialValue);
-  useValueDifference(count, "count");
+  useValueDifference({ count });
 
   return (
     <countContext.Provider value={count}>

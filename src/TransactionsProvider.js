@@ -7,14 +7,14 @@ export const dispatchTransactionsContext = createContext(undefined);
 
 const TransactionsProvider = ({ value = initialValue, children }) => {
   console.log("TransactionsProvider");
-  useValueDifference(value, "value");
-  useValueDifference(children, "children");
+  useValueDifference({ value });
+  useValueDifference({ children });
 
   const [transactions, dispatchTransactions] = useReducer(
     transactionsReducer,
     value
   );
-  useValueDifference(transactions, "transactions");
+  useValueDifference({ transactions });
   return (
     <transactionsContext.Provider value={transactions}>
       <dispatchTransactionsContext.Provider value={dispatchTransactions}>

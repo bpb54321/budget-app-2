@@ -5,7 +5,7 @@ import useValueDifference from "./useValueDifference";
 const Counter = () => {
   console.log("Counter");
   const [count, dispatchCount] = useCount();
-  useValueDifference(count, "count");
+  useValueDifference({ count });
   return (
     <>
       <h2>Counter</h2>

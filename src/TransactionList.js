@@ -6,7 +6,7 @@ const TransactionList = () => {
   console.log("TransactionList");
 
   const transactions = useContext(transactionsContext);
-  useValueDifference(transactions, "transactions");
+  useValueDifference({ transactions });
 
   return (
     <ul>

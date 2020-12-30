@@ -7,10 +7,10 @@ const SingleTransactionEntry = () => {
   console.log("SingleTransactionEntry");
 
   const [payee, setPayee] = useState("");
-  useValueDifference(payee, "payee");
+  useValueDifference({ payee });
 
   const dispatchTransactions = useContext(dispatchTransactionsContext);
-  useValueDifference(dispatchTransactions, "dispatchTransactions");
+  useValueDifference({ dispatchTransactions });
 
   return (
     <form
